@@ -119,6 +119,7 @@ for(i in 1:1000){
 result <- mean(values)
 
 
+
 #Q5
 data<-read_html("https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/")
 score<- data %>% html_elements(".article_movie_title span.tMeterScore") %>% html_text()
@@ -134,4 +135,4 @@ year <- str_remove_all(year, "[(,)]") %>% as.numeric()
 ranking <- data %>% html_elements(".countdown-index") %>% html_text()
 ranking <- str_remove_all(ranking, "#") %>% as.numeric()
 movie_table <- data.frame("Ranking" = ranking,"Name of Movie" = movie_names,"Tomato % score" = score, "Year of movie
-" = year )
+" = year )  
