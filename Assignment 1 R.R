@@ -5,14 +5,14 @@ library(imager)
 library(stringr)
 
 
-#Q1
+#Q a
 data2<-read_html("https://www.moneyworks4me.com/best-index/nse-stocks/top-nifty50-companies-list/")
 table <- html_nodes(data2,"table")
 nifty50 <- html_table(table)[[1]]
 nifty50 <- nifty50[1:50,2:13]
 
 
-#Q2
+#Q b
 #stock1
 data3<- read_html("https://www.moneyworks4me.com/indianstocks/large-cap/miscellaneous/trading/adani-enterprises/company-info")
 table2 <-  html_nodes(data3,"table")
@@ -70,7 +70,7 @@ analysis_2 <- analysis_2[-1,1:11]
 Analysis_5 <- rbind(analysis_1,analysis_2)
 
 
-#Q3
+#Q c
 tennis <- function(p)
 {
   wins_A <- 0
@@ -93,7 +93,7 @@ for(i in 1:1000)
 ans <- mean(matches)
 
 
-#Q4
+#Q d
 MontyHall <- function(){
   car <- sample(x = 1:3, size = 1)
   initial <- sample(x = 1:3, size = 1) 
@@ -120,7 +120,7 @@ result <- mean(values)
 
 
 
-#Q5
+#Q e
 data<-read_html("https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/")
 score<- data %>% html_elements(".article_movie_title span.tMeterScore") %>% html_text()
 score <- str_remove_all(score, "%") %>% as.numeric()
